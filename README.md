@@ -126,12 +126,18 @@ Generate a secure JWT key:
 python3 -c "import secrets; print(secrets.token_hex(32))"
 ```
 
-Update `.env` with:
+Update `.env`:
+
+```sh
+nano .env
+```
+
+Fill in the following information (make sure to replace the placeholders):
 
 ```ini
 JWT_SECRET_KEY=<your_generated_key>
 POSTGRES_USER=grocery_user
-POSTGRES_PASSWORD=grocery_test
+POSTGRES_PASSWORD=<your_password>
 POSTGRES_DB=grocerymate_db
 POSTGRES_HOST=localhost
 POSTGRES_URI=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}
