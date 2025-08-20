@@ -1,7 +1,3 @@
-provider "aws" {
-  region  = var.aws_region
-  profile = var.profile
-}
 
 resource "aws_security_group" "web_sg_grocery_mate" {
   name        = "web_sg_grocery_mate"
@@ -65,3 +61,4 @@ resource "aws_instance" "web_server_grocery_mate" {
   }
 
 }
+
