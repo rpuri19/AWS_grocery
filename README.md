@@ -1,3 +1,5 @@
+# make sure you follow these steps to make the repo run locally
+
 # GroceryMate
 
 ## 🏆 GroceryMate E-Commerce Platform
