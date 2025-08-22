@@ -1,8 +1,4 @@
-# make sure you follow these steps to make the repo run locally
-
-# GroceryMate
-
-## 🏆 GroceryMate E-Commerce Platform
+# Running the GroceryMate E-Commerce Platform locally
 
 [![Python](https://img.shields.io/badge/Language-Python%2C%20JavaScript-blue)](https://www.python.org/)
 [![OS](https://img.shields.io/badge/OS-Linux%2C%20Windows%2C%20macOS-green)](https://www.kernel.org/)
@@ -10,7 +6,6 @@
 [![GitHub Release](https://img.shields.io/github/v/release/AlejandroRomanIbanez/AWS_grocery)](https://github.com/AlejandroRomanIbanez/AWS_grocery/releases/tag/v2.0.0)
 [![Free](https://img.shields.io/badge/Free_for_Non_Commercial_Use-brightgreen)](#-license)
 
-⭐ **Star us on GitHub** — it motivates us a lot!
 
 ---
 
@@ -33,21 +28,18 @@
 
 ## 🚀 Overview
 
-GroceryMate is an application developed as part of the Masterschools program by **Alejandro Roman Ibanez**. It is a modern, full-featured e-commerce platform designed for seamless online grocery shopping. It provides an intuitive user interface and a secure backend, allowing users to browse products, manage their shopping basket, and complete purchases efficiently.
+This project is part of the Cloud Track in our Masterschool Software Engineering bootcamp. Originally developed by our Track Mentor, Alejandro Román, my task was to design and deploy its AWS infrastructure step by step.
 
 GroceryMate is a modern, full-featured e-commerce platform designed for seamless online grocery shopping. It provides an intuitive user interface and a secure backend, allowing users to browse products, manage their shopping basket, and complete purchases efficiently.
 
 ## 🛒 Features
 
-- **🛡️ User Authentication**: Secure registration, login, and session management.
-- **🔒 Protected Routes**: Access control for authenticated users.
-- **🔎 Product Search & Filtering**: Browse products, apply filters, and sort by category or price.
-- **⭐ Favorites Management**: Save preferred products.
-- **🛍️ Shopping Basket**: Add, view, modify, and remove items.
-- **💳 Checkout Process**:
-  - Secure billing and shipping information handling.
-  - Multiple payment options.
-  - Automatic total price calculation.
+- **️User Authentication**: Secure registration, login, and session management.
+- **Protected Routes**: Access control for authenticated users.
+- **Product Search & Filtering**: Browse products, apply filters, and sort by category or price.
+- **Favorites Management**: Save preferred products.
+- **Shopping Basket**: Add, view, modify, and remove items.
+- **Checkout Process**: Secure billing and shipping information handling, Multiple payment options, Automatic total price calculation.
 
 ## 📸 Screenshots & Demo
 
