@@ -1,147 +1,78 @@
-# Running the GroceryMate E-Commerce Platform locally
+# Cloud-Native Grocery Web App
 
-[![Python](https://img.shields.io/badge/Language-Python%2C%20JavaScript-blue)](https://www.python.org/)
-[![OS](https://img.shields.io/badge/OS-Linux%2C%20Windows%2C%20macOS-green)](https://www.kernel.org/)
-[![Database](https://img.shields.io/badge/Database-PostgreSQL-336791)](https://www.postgresql.org/)
-[![GitHub Release](https://img.shields.io/github/v/release/AlejandroRomanIbanez/AWS_grocery)](https://github.com/AlejandroRomanIbanez/AWS_grocery/releases/tag/v2.0.0)
-[![Free](https://img.shields.io/badge/Free_for_Non_Commercial_Use-brightgreen)](#-license)
-
-
+- AWS infrastructure for the Grocery App.
+- Includes backend API and frontend webapp.
 ---
 
 ## 📌 Table of Contents
 
-- [Overview](#-overview)
-- [Features](#-features)
-- [Screenshots & Demo](#-screenshots--demo)
+- [Project Overview](#-project-overview)
+- [AWS Services Used](#aws-services-used)
+- [Architecture Overview](#architecture-overview)
 - [Prerequisites](#-prerequisites)
 - [Installation](#-installation)
-  - [Clone Repository](#-clone-repository)
-  - [Configure PostgreSQL](#-configure-postgresql)
-  - [Populate Database](#-populate-database)
-  - [Set Up Python Environment](#-set-up-python-environment)
-  - [Set Environment Variables](#-set-environment-variables)
-  - [Start the Application](#-start-the-application)
 - [Usage](#-usage)
 - [Contributing](#-contributing)
 - [License](#-license)
 
-## 🚀 Overview
+--- 
+
+# 🚀 Project Overview
 
 This project is part of the Cloud Track in our Masterschool Software Engineering bootcamp. Originally developed by our Track Mentor, Alejandro Román, my task was to design and deploy its AWS infrastructure step by step.
 
-GroceryMate is a modern, full-featured e-commerce platform designed for seamless online grocery shopping. It provides an intuitive user interface and a secure backend, allowing users to browse products, manage their shopping basket, and complete purchases efficiently.
+This project showcases a **containerized, cloud-native grocery web application** deployed on **AWS**.  
+It emphasizes **DevOps principles**, **Infrastructure as Code (IaC)**, and **scalable, secure architecture** using a range of AWS services.
 
-## 🛒 Features
 
-- **️User Authentication**: Secure registration, login, and session management.
-- **Protected Routes**: Access control for authenticated users.
-- **Product Search & Filtering**: Browse products, apply filters, and sort by category or price.
-- **Favorites Management**: Save preferred products.
-- **Shopping Basket**: Add, view, modify, and remove items.
-- **Checkout Process**: Secure billing and shipping information handling, Multiple payment options, Automatic total price calculation.
+## AWS Services Used
 
-## 📸 Screenshots & Demo
+- **EC2** – Host Docker containers running the web app
+- **VPC, Subnets, Security Groups** – Custom network configuration
+- **S3** – Store static assets and backups  
+- **Application Load Balancer (ALB)** – Distribute traffic across EC2 instances  
+- **RDS (PostgreSQL)** – Managed relational database for persistent storage  
+- **IAM** – Secure access control   
+- **Terraform** – Infrastructure provisioning via code  
 
-![imagen](https://github.com/user-attachments/assets/ea039195-67a2-4bf2-9613-2ee1e666231a)
-![imagen](https://github.com/user-attachments/assets/a87e5c50-5a9e-45b8-ad16-2dbff41acd00)
-![imagen](https://github.com/user-attachments/assets/589aae62-67ef-4496-bd3b-772cd32ca386)
-![imagen](https://github.com/user-attachments/assets/2772b85e-81f7-446a-9296-4fdc2b652cb7)
-
-https://github.com/user-attachments/assets/d1c5c8e4-5b16-486a-b709-4cf6e6cce6bc
-
+---
 ## 📋 Prerequisites
-
-Ensure the following dependencies are installed before running the application:
-
-- **🐍 Python (>=3.11)**
+Please make sure that you have the following installed on your system :
+- **Python (>=3.11)**
 - **🐘 PostgreSQL** – Database for storing product and user information.
 - **🛠️ Git** – Version control system.
+- **AWS**
+- **Terraform**
+- **Docker**
+
+
+## Architecture Overview
+
+- The application is **containerized using Docker** and deployed on **EC2 instances**.  
+- Traffic is routed through an **Application Load Balancer (ALB)** for high availability.  
+- A **PostgreSQL database (RDS)** handles backend data storage.  
+- **Static content** is hosted in an **S3 bucket**.  
+- Infrastructure can be entirely managed via **Terraform** for **repeatable deployments**.  
+
+---
+
+## DevOps Features & Cloud Skills
+
+- Dockerized deployment on EC2  
+- AWS-native architecture with modular design  
+- Full **Infrastructure as Code** using Terraform  
+- Secure **IAM setup** and fine-grained access control  
+- **PostgreSQL provisioning** and initialization on Amazon RDS  
+- **Load balancing with ALB** for high availability  
+- **Static asset hosting with S3**  
+- Public/private subnets, security groups, and routing  
+
+
+## 🛒 Features
 
 ## ⚙️ Installation
 
 ### 🔹 Clone Repository
-
-```sh
-git clone --branch version2 https://github.com/AlejandroRomanIbanez/AWS_grocery.git && cd AWS_grocery
-```
-
-### 🔹 Configure PostgreSQL
-
-Before creating the database user, you can choose a custom username and password to enhance security. Replace `<your_secure_password>` with a strong password of your choice in the following commands.
-
-Create database and user:
-
-```sh
-psql -U postgres -c "CREATE DATABASE grocerymate_db;"
-psql -U postgres -c "CREATE USER grocery_user WITH ENCRYPTED PASSWORD '<your_secure_password>';"  # Replace <your_secure_password> with a strong password of your choice
-psql -U postgres -c "ALTER USER grocery_user WITH SUPERUSER;"
-```
-
-### 🔹 Populate Database
-
-```sh
-psql -U grocery_user -d grocerymate_db -f backend/app/sqlite_dump_clean.sql
-```
-
-Verify insertion:
-
-```sh
-psql -U grocery_user -d grocerymate_db -c "SELECT * FROM users;"
-psql -U grocery_user -d grocerymate_db -c "SELECT * FROM products;"
-```
-
-### 🔹 Set Up Python Environment
-
-
-Install dependencies in an activated virtual Enviroment:
-
-```sh
-cd backend
-pip install -r requirements.txt
-```
-OR (if pip doesn't exist)
-```sh
-pip3 install -r requirements.txt
-```
-
-### 🔹 Set Environment Variables
-
-Create a `.env` file:
-
-```sh
-touch .env  # macOS/Linux
-ni .env -Force  # Windows
-```
-
-Generate a secure JWT key:
-
-```sh
-python3 -c "import secrets; print(secrets.token_hex(32))"
-```
-
-Update `.env`:
-
-```sh
-nano .env
-```
-
-Fill in the following information (make sure to replace the placeholders):
-
-```ini
-JWT_SECRET_KEY=<your_generated_key>
-POSTGRES_USER=grocery_user
-POSTGRES_PASSWORD=<your_password>
-POSTGRES_DB=grocerymate_db
-POSTGRES_HOST=localhost
-POSTGRES_URI=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}
-```
-
-### 🔹 Start the Application
-
-```sh
-python3 run.py
-```
 
 ## 📖 Usage
 
@@ -160,10 +91,5 @@ We welcome contributions! Please follow these steps:
 3. Implement your changes and commit them.
 4. Push your branch and create a pull request.
 
-## 📜 License
-
+## License
 This project is licensed under the MIT License.
-
-
-
-
