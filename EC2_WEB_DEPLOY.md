@@ -56,25 +56,14 @@ Run the following command to update all installed packages:
 
     sudo yum update -y
 
-🔹 **What does this do?**
-
--   Fetches and installs the latest security patches.
--   Updates core system libraries.
--   Ensures compatibility with the latest software versions.
+🔹 This fetches and installs the latest security patches, updates core system libraries and ensures compatibility with the latest software versions.
 
 ## ✅ **Install Essential Software**
 
-The application requires **Git, Python, PostgreSQL, and dependencies**.
+The application requires **Git** (Version control system), **Python** (for running the backend), **PostgreSQL** (the database system used by the application) and dependencies**.
 Install them using:
 
     sudo yum install -y git python3 python3-pip postgresql15 postgresql15-server postgresql15-contrib
-
-🔹 **What does this do?**
-
--   **Git** → Version control system to **clone repositories** and
-    manage updates.
--   **Python3 & Pip** → Required for running the backend.
--   **PostgreSQL** → The **database system** used by the application.
 
 Verify installation:
 
@@ -136,10 +125,7 @@ Verify that PostgreSQL is running:
 
     sudo systemctl status postgresql
 
-🔹 **What does this do?**
-
--   **Initializes** the PostgreSQL database.
--   **Starts** the PostgreSQL service.
+🔹 This **Initializes** the PostgreSQL database and **Starts** the PostgreSQL service.
 
 ## ✅ **Modify PostgreSQL Authentication (Important)**
 
@@ -154,15 +140,9 @@ Before modifying PostgreSQL authentication settings, we first need to
 **manually set a password for the `postgres` user**. This is necessary
 because **by default, PostgreSQL uses "peer authentication"**, which
 means that the `postgres` user does not require a password when logging
-in from the system user.
+in from the system user. 
 
-### 🔹 **Why Is This Step Needed?**
-
--   PostgreSQL is initially set up with **peer authentication**, meaning
-    it does not require a password for the `postgres` system user.
--   Before switching to **password-based authentication (`md5`)**, we
-    must first **set a password manually** so that we don't get locked
-    out.
+Before switching to **password-based authentication (`md5`)**, we must first **set a password manually** so that we don't get locked out.
 
 Since we are currently using **peer authentication**, we can log in as
 the `postgres` system user without needing a password:
@@ -226,7 +206,7 @@ authentication instead of the default **peer authentication**.
 
         psql -U postgres -h localhost
 
-    type exit to exit
+    type **exit** to exit
 
 ## ✅ **Create Database and User**
 
@@ -262,7 +242,7 @@ To check if the database and user were created successfully, run:
 
     psql -U grocery_user -d grocerymate_db -h localhost -W
 
-type exit to exit
+type **exit** to exit
 
 -   **`U grocery_user`** → Logs in as `grocery_user`.
 -   **`d grocerymate_db`** → Connects to the `grocerymate_db` database.

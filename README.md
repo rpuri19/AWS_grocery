@@ -19,7 +19,7 @@
 
 # 🚀 Project Overview
 
-This project is part of the Cloud Track in our Masterschool Software Engineering bootcamp. Originally developed by our Track Mentor, Alejandro Román, my task was to design and deploy its AWS infrastructure step by step.
+This project is part of the Cloud Track in our Masterschool Software Engineering bootcamp. Originally developed by our Track Mentor, Alejandro Román. My task was to design and deploy its AWS infrastructure step by step.
 
 This project showcases a **containerized, cloud-native grocery web application** deployed on **AWS**.  
 It emphasizes **DevOps principles**, **Infrastructure as Code (IaC)**, and **scalable, secure architecture** using a range of AWS services.
@@ -84,12 +84,10 @@ Please make sure that you have the following installed on your system :
 
 ## 🤝 Contributing
 
-We welcome contributions! Please follow these steps:
-
-1. Fork the repository.
+1. Fork the version2/ latest version of this repository:
+```sh
+https://github.com/AlejandroRomanIbanez/AWS_grocery.git && cd AWS_grocery
+```
 2. Create a new feature branch (`feature/your-feature`).
 3. Implement your changes and commit them.
 4. Push your branch and create a pull request.
-
-## License
-This project is licensed under the MIT License.
