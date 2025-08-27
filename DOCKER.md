@@ -3,7 +3,7 @@ This guide explains how to run the application both **locally** and on **AWS EC2
 
 ---
 
-## 🚀 Part 1: Local Deployment  
+# 🚀 Part 1: Local Deployment  
 Instructions to set up and run the application on your local machine.
 
 ## 🐳 **Step 1: Install Docker**
@@ -19,7 +19,7 @@ docker ps
 
 This should return you running containers (none at the moment). 
 
-# 📄 **Step 2: Create a `Dockerfile`**
+## 📄 **Step 2: Create a `Dockerfile`**
 
 A **Dockerfile** is a script that tells Docker how to build your application’s container. Create a new file named **`Dockerfile`** inside your backend folder and add the following content:
 
@@ -43,7 +43,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 CMD ["python", "run.py"]
 ```
 
-# 🔧 **Step 3: Configure `.env` for Docker**
+## 🔧 **Step 3: Configure `.env` for Docker**
 
 Since we already have **PostgreSQL running on our local system**, we don’t need to install another instance inside the container. Instead, we use **`host.docker.internal`** to connect the container to the existing database.
 
@@ -60,7 +60,7 @@ POSTGRES_HOST=host.docker.internal
 POSTGRES_URI=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}
 ```
 
-# 🚀 **Step 4: Build and Run the Docker Container**
+## 🚀 **Step 4: Build and Run the Docker Container**
 
 ### **1️⃣ Build the Docker Image**
 
@@ -92,7 +92,7 @@ http://localhost:5000
 
 ---
 
-## 🌐 Part 2: AWS EC2 Deployment  
+# 🌐 Part 2: AWS EC2 Deployment  
 Steps to deploy and run the application on an AWS EC2 instance.
 
 
