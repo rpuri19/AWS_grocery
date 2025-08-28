@@ -138,7 +138,7 @@ Update your `.env` file as follows (also replace the password <grocery_test>):
 echo "POSTGRES_HOST=localhost" >> .env
 echo "POSTGRES_URI=postgresql://grocery_user:<grocery_test>@localhost:5432/grocerymate_db" >> .env
 ```
-# ✅ Step 4: **Build the Docker Image**
+## ✅ Step 4: **Build the Docker Image**
 
 Now, use the `docker build` command to create the image:
 
@@ -153,7 +153,7 @@ docker images
 
 You should see `grocerymate` listed in the output.
 
-# **✅ Step 5: Run the Application in Docker**
+## ✅ Step 5: **Run the Application in Docker**
 Make sure to replace <your_grocery_password> with your password.
 
 ```
