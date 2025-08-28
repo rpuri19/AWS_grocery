@@ -95,6 +95,84 @@ http://localhost:5000
 # 🌐 Part 2: AWS EC2 Deployment  
 Steps to deploy and run the application on an AWS EC2 instance.
 
+## Step 1. Launch an EC2 Instance
+
+Launch and connect to the instance via SSH:
+```
+ssh -i /path/to/your-key.pem ec2-user@your-ec2-public-dns
+```
+
+## Step 2. Install Docker on EC2
+```
+sudo yum update -y
+sudo yum install -y docker
+```
+After installing, start the Docker service and ensure it runs on boot:
+```
+sudo service docker start
+sudo systemctl enable docker
+```
+Verify that Docker is running by running:
+```
+sudo systemctl status docker
+```
+If the service is inactive (dead), restart it:
+```
+sudo systemctl restart docker
+```
+By default, Docker requires root privileges. To allow your (ec2-user) to run Docker commands without sudo, add it to the docker group
+```
+sudo usermod -aG docker ec2-user
+```
+
+Note: After adding ec2-user to the Docker group, log out and back in to avoid sudo with Docker commands.
+
+## ✅ Step 3: **Ensure Your Forked Repository is Up-to-Date**
+Ensure your local clone is up to date with your GitHub fork. Also confirm that your **Dockerfile** and **.env** File is Present Before Building the Docker Image.
+
+### **Updating the `.env` File for EC2 Deployment**
+
+Update your `.env` file as follows (also replace the password <grocery_test>):
+
+```
+echo "POSTGRES_HOST=localhost" >> .env
+echo "POSTGRES_URI=postgresql://grocery_user:<grocery_test>@localhost:5432/grocerymate_db" >> .env
+```
+# ✅ Step 4: **Build the Docker Image**
+
+Now, use the `docker build` command to create the image:
+
+```
+docker build -t grocerymate .
+```
+To check that the image was built successfully, run:
+
+```
+docker images
+```
+
+You should see `grocerymate` listed in the output.
+
+# **✅ Step 5: Run the Application in Docker**
+Make sure to replace <your_grocery_password> with your password.
+
+```
+docker run --network host \
+  -e POSTGRES_HOST=localhost \
+  -e POSTGRES_URI=postgresql://grocery_user:<your_grocery_password>@localhost:5432/grocerymate_db \
+  grocerymate
+```
+
+After running the container, you can check if it’s running properly:
+```
+docker ps
+```
+Verify Deployment:
+
+Visit your instance's public IP with the designated port (e.g., http://your-ec2-public-ip:5000).
+
+
+
 
 
 
