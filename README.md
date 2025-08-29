@@ -8,12 +8,10 @@
 
 - [Project Overview](#-project-overview)
 - [AWS Services Used](#aws-services-used)
-- [Architecture Overview](#architecture-overview)
 - [Prerequisites](#-prerequisites)
-- [Installation](#-installation)
-- [Usage](#-usage)
+- [Architecture Overview](#architecture-overview)
+- [Features & Skills](#devops-features--cloud-skills)
 - [Contributing](#-contributing)
-- [License](#-license)
 
 --- 
 
@@ -66,21 +64,6 @@ Please make sure that you have the following installed on your system :
 - **Load balancing with ALB** for high availability  
 - **Static asset hosting with S3**  
 - Public/private subnets, security groups, and routing  
-
-
-## 🛒 Features
-
-## ⚙️ Installation
-
-### 🔹 Clone Repository
-
-## 📖 Usage
-
-- Access the application at [http://localhost:5000](http://localhost:5000)
-- Register/Login to your account
-- Browse and search for products
-- Manage favorites and shopping basket
-- Proceed through the checkout process
 
 ## 🤝 Contributing
 
