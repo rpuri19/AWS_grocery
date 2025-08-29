@@ -72,5 +72,4 @@ Please make sure that you have the following installed on your system :
 https://github.com/AlejandroRomanIbanez/AWS_grocery.git && cd AWS_grocery
 ```
 2. Create a new feature branch (`feature/your-feature`).
-3. Implement your changes and commit them.
-4. Push your branch and create a pull request.
+3. Implement your changes and create a pull request.
