@@ -2,6 +2,7 @@
 
 - AWS infrastructure for the Grocery App.
 - Includes backend API and frontend webapp.
+
 ---
 
 ## 📌 Table of Contents
@@ -22,6 +23,7 @@ This project is part of the Cloud Track in our Masterschool Software Engineering
 This project showcases a **containerized, cloud-native grocery web application** deployed on **AWS**.  
 It emphasizes **DevOps principles**, **Infrastructure as Code (IaC)**, and **scalable, secure architecture** using a range of AWS services.
 
+---
 
 ## AWS Services Used
 
@@ -34,6 +36,7 @@ It emphasizes **DevOps principles**, **Infrastructure as Code (IaC)**, and **sca
 - **Terraform** – Infrastructure provisioning via code  
 
 ---
+
 ## 📋 Prerequisites
 Please make sure that you have the following installed on your system :
 - **Python (>=3.11)**
@@ -43,14 +46,19 @@ Please make sure that you have the following installed on your system :
 - **Terraform**
 - **Docker**
 
+---
 
 ## Architecture Overview
 
-- The application is **containerized using Docker** and deployed on **EC2 instances**.  
 - Traffic is routed through an **Application Load Balancer (ALB)** for high availability.  
 - A **PostgreSQL database (RDS)** handles backend data storage.  
 - **Static content** is hosted in an **S3 bucket**.  
-- Infrastructure can be entirely managed via **Terraform** for **repeatable deployments**.  
+- The application is **containerized using Docker** and deployed on **EC2 instances**.  
+- Infrastructure can be managed via **Terraform** for **repeatable deployments**.
+
+![architecture_photo_1](images/image_2.jpg)
+
+![architecture photo_2](images/image_1.jpg)
 
 ---
 
@@ -64,6 +72,8 @@ Please make sure that you have the following installed on your system :
 - **Load balancing with ALB** for high availability  
 - **Static asset hosting with S3**  
 - Public/private subnets, security groups, and routing  
+
+---
 
 ## 🤝 Contributing
 
